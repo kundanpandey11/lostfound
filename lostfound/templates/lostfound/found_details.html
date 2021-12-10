@@ -1,0 +1,35 @@
+
+  <div class="card">
+    <style>
+      .card {
+          box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+          transition: 0.3s;
+          border-radius: 5px; /* 5px rounded corners */
+        }
+        
+        /* Add rounded corners to the top left and the top right corner of the image */
+        img {
+          border-radius: 5px 5px 0 0;
+          height: auto;
+        }
+    </style>
+    <div class="container">
+      <h1><b>{{item.itemname}}</b></h1>
+      <h3>Location: {{item.itemfoundlocation}}</h3>
+      <h3>{{item.itemdescription}}</h3>
+        <h3>Email: {{item.founderemail}}</h3><br><br>
+
+
+      <h4>Down is the image of found item..</h4>
+      
+  
+      <button type="button" class="btn btn-danger"><a href="{% url 'deletefounditem' item.id %}">Delete</a></button>
+    </div>
+    {%if item.itemimage %}
+    <img src="{{item.itemimage.url}}" alt="Avatar" style="width: 100%">
+    {%else%}
+    <h1>Owner has not provided any pictures</h1>
+    {% endif %}
+  
+  
+</div>

@@ -1,0 +1,86 @@
+
+<html lang="en">
+<head>
+<title>Lost_Found App</title>
+<meta charset="utf-8">
+<meta name="viewport"
+content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src=
+"https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
+</script>
+<script src=
+"https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js">
+</script>
+<style>
+    body {
+        background-color: #ddd;
+    }
+    .column {
+        float: left;
+        width: 100%;
+        padding: 10px;
+      }
+      
+      /* Clear floats after the columns */
+     
+      hr {
+        border-top: 1px solid black;
+      }
+</style>
+</head>
+<body>
+ 
+<nav class="navbar navbar-inverse navbar-fixed-top">
+<div role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">App Navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      {%block name%}
+      <a href="/" class="navbar-brand">LOST ITEM SECTION</a>
+      {%endblock%}
+    </div>
+    <div class="navbar-collapse collapse">
+      <ul class="nav navbar-nav navbar-right">
+          <li class="active"><a href="{% url 'founditemlist' %}">Found Item Section</a></li>
+          <li> <a href="{% url 'createfounditem' %}">Report Found Item</a> </li>
+          <li><a href="{% url 'createlostitem' %}">Report Lost Item</a> </li>
+          <li><a href="{% url 'about' %}">ABOUT</a> </li>
+
+      </ul>
+    </div>
+  </div>
+   
+</div>
+</nav>
+{%block body%}
+<br><br><br>
+{% for found in lostitem%}
+<div class="column" style="background-color:#ddd;">
+    
+    <a href="{% url 'lostitemdetails' found.id %}"><h2>{{found.itemname}}</h2></a>
+    <h2>{{found.owneremail}}</h2>
+    <p>{{found.itemdescription}}</p>
+    <p>{{found.date}}</p>
+   
+    <hr color="black">
+  </div>
+  
+  {% endfor%}
+
+{%endblock%}
+
+</body>
+</html> 
+
+
+
+
+

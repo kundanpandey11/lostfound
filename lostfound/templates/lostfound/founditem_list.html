@@ -1,0 +1,23 @@
+{% extends 'lostfound/index.html' %}
+
+{% block name %}
+<a href="/" class="navbar-brand">FOUND ITEM SECTION</a>
+{%endblock%}
+
+{%block body%}
+<br><br><br>
+{% for found in founditem%}
+<div class="column" style="background-color:#ddd;">
+    
+    <a href="{% url 'founditemdetails' found.id %}"><h2>{{found.itemname}}</h2></a>
+    <h2>Email: {{found.founderemail}}</h2>
+    <p>{{found.itemdescription}}</p>
+
+    <strong>{{found.timecreated}}</strong><br>
+
+    <hr color="black">
+  </div>
+  
+  {% endfor%}
+
+  {%endblock%}
