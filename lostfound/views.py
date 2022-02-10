@@ -17,7 +17,8 @@ def index(request):
 
 
 
-
+def login_alert(request):
+    return render(request, 'lostfound/login_alert.html')
 
 
 def founditemlist(request):
