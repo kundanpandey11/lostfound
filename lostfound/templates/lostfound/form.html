@@ -1,14 +1,18 @@
-{% extends 'lostfound/form_base.html' %}
+{% extends 'lostfound/index.html' %}
 
 
 {% load crispy_forms_tags %}
  
+{%block name %} 
+<a href="/" class="navbar-brand">FORMS</a>
+{% endblock %}
 
 
+{% block body %}
 
-{% block content %}
 
     <h2>Fill the form to continue!</h2>
+    <HR>
     <form method="post" novalidate enctype="multipart/form-data">
     {% csrf_token %}
     {{ form|crispy}}

@@ -13,11 +13,6 @@ class LostItem(models.Model):
 
     
 
-    # @property
-    # def image_url(self):
-    #     if self.itemimage and hasattr(self.itemimage, 'url'):
-    #         return self.itemimage.url
-
     def __str__(self):
         return self.itemname
 
