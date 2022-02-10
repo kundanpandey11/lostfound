@@ -1,0 +1,13 @@
+{% extends 'lostfound/index.html' %}
+{% load socialaccount %}
+
+{% block body %}
+<div class="card">
+    <div class="card_body">
+        <div class="card_title">Not logged in?</div>
+        <div class="card_text">You can delete an item only if you're logged in!</div>
+    </div>
+</div>
+<a href="{% provider_login_url 'google' %}" class="btn btn-primary">Login with google</a>
+
+{% endblock %}
